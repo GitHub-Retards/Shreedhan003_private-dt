@@ -9,7 +9,10 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+$(call inherit-product-if-exists, vendor/prebuilts/config/apex.mk)
+TARGET_SUPPORTS_UPDATABLE_APEX := true
 
+# Disable APEX compression
 PRODUCT_COMPRESSED_APEX := false
 
 # Overlays
